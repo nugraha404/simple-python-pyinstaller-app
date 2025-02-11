@@ -17,11 +17,11 @@ node {
         }
         
         // Always publish test results
-        post {
-            always {
-                junit 'test-reports/results.xml'
-            }
-        }
+        // post {
+        //     always {
+        //         junit 'test-reports/results.xml'
+        //     }
+        // }
     }
     
     stage('Deliver') {
@@ -31,10 +31,10 @@ node {
         }
         
         // Archive artifact on success
-        post {
-            success {
-                archiveArtifacts 'dist/add2vals'
-            }
-        }
+        // post {
+        //     success {
+        //         archiveArtifacts 'dist/add2vals'
+        //     }
+        // }
     }
 }
