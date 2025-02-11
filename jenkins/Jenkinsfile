@@ -20,8 +20,8 @@ node {
     }
     
     stage('Deliver') {
-         docker.image('cdrx/pyinstaller-linux:python2').inside {
-        sh '/bin/sh -c "pyinstaller --onefile sources/add2vals.py"'
+         docker.image('cdrx/pyinstaller-linux:python2').inside('-v /var/jenkins_home/workspace:/var/jenkins_home/workspace') {
+        sh 'pyinstaller --onefile sources/add2vals.py'
         }
         
         // Archive artifact on success
