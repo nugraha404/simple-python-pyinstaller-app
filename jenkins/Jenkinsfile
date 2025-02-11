@@ -11,11 +11,11 @@ node {
         }
         
         // Always publish test results
-        post {
-            always {
-                junit 'test-reports/results.xml'
-            }
-        }
+        // post {
+        //     always {
+        //         junit 'test-reports/results.xml'
+        //     }
+        // }
         input message: 'Lanjutkan ke tahap Deploy? (Klik "Proceed" untuk melanjutkan eksekusi pipeline ke tahap deploy atau "Abort" untuk menghentikan eksekusi pipeline)'
     }
     
