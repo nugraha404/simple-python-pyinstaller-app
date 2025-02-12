@@ -9,14 +9,7 @@ node {
         docker.image('qnib/pytest').inside {
             sh 'py.test --verbose --junit-xml test-reports/results.xml sources/test_calc.py'
         }
-        
-        // Always publish test results
-        // post {
-        //     always {
-        //         junit 'test-reports/results.xml'
-        //     }
-        // }
-        //input message: 'Lanjutkan ke tahap Deploy? (Klik "Proceed" untuk melanjutkan eksekusi pipeline ke tahap deploy atau "Abort" untuk menghentikan eksekusi pipeline)'
+        input message: 'Lanjutkan ke tahap Deploy? (Klik "Proceed" untuk melanjutkan eksekusi pipeline ke tahap deploy atau "Abort" untuk menghentikan eksekusi pipeline)'
     }
 
         
@@ -24,21 +17,8 @@ node {
         docker.image('minidocks/pyinstaller').inside {
             sh 'pyinstaller --onefile --noconfirm sources/add2vals.py'
         }
-        
-        // Archive artifact on success
-        // post {
-        //     success {
-        //         archiveArtifacts 'dist/add2vals'
-        //     }
-        // }
+
         sleep 60
     }
 
-    // stage('Debug') {
-    //     steps {
-    //         sh 'ls -lah /var/jenkins_home/workspace'
-    //         sh 'whoami'
-    //         sh 'docker ps -a'
-    //     }
-    // }
 }
