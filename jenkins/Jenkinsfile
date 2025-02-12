@@ -26,19 +26,12 @@ node {
         }
         
         // Archive artifact on success
-        post {
-            success {
-                archiveArtifacts 'dist/add2vals'
-            }
-        }
+        // post {
+        //     success {
+        //         archiveArtifacts 'dist/add2vals'
+        //     }
+        // }
         sleep 60
     }
 
-    // stage('Debug') {
-    //     steps {
-    //         sh 'ls -lah /var/jenkins_home/workspace'
-    //         sh 'whoami'
-    //         sh 'docker ps -a'
-    //     }
-    // }
 }
