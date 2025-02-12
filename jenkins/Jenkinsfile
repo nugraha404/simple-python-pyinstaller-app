@@ -1,6 +1,6 @@
 node {
     stage('Build') {
-        docker.image('python:2-alpine').inside {
+        docker.image('python:3-alpine').inside {
             sh 'python -m py_compile sources/add2vals.py sources/calc.py'
         }
     }
@@ -21,7 +21,7 @@ node {
 
         
     stage('Deliver') {
-        docker.image('cdrx/pyinstaller-linux:python2').inside {
+        docker.image('cdrx/pyinstaller-linux:python3').inside {
             sh 'pyinstaller --onefile --noconfirm sources/add2vals.py'
         }
         
