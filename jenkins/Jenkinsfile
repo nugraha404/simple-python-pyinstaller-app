@@ -26,11 +26,11 @@ node {
         }
         
         // Archive artifact on success
-        post {
-            success {
-                archiveArtifacts 'dist/add2vals'
-            }
-        }
+        // post {
+        //     success {
+        //         archiveArtifacts 'dist/add2vals'
+        //     }
+        // }
         sleep 60
     }
 
