@@ -18,6 +18,14 @@ node {
         // }
         input message: 'Lanjutkan ke tahap Deploy? (Klik "Proceed" untuk melanjutkan eksekusi pipeline ke tahap deploy atau "Abort" untuk menghentikan eksekusi pipeline)'
     }
+
+    stage('Debug') {
+    steps {
+        sh 'ls -lah /var/jenkins_home/workspace'
+        sh 'whoami'
+        sh 'docker ps -a'
+    }
+}
     
     stage('Deliver') {
         docker.image('cdrx/pyinstaller-linux:python2').inside {
