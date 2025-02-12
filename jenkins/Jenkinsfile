@@ -1,6 +1,6 @@
 node {
     stage('Build') {
-        docker.image('python:3-alpine').inside {
+        docker.image('python:2-alpine').inside {
             sh 'python -m py_compile sources/add2vals.py sources/calc.py'
         }
     }
@@ -21,7 +21,7 @@ node {
 
         
     stage('Deliver') {
-        docker.image('cdrx/pyinstaller-linux:python3').inside {
+        docker.image('minidocks/pyinstaller').inside {
             sh 'pyinstaller --onefile --noconfirm sources/add2vals.py'
         }
         
@@ -34,4 +34,11 @@ node {
         sleep 60
     }
 
+    // stage('Debug') {
+    //     steps {
+    //         sh 'ls -lah /var/jenkins_home/workspace'
+    //         sh 'whoami'
+    //         sh 'docker ps -a'
+    //     }
+    // }
 }
