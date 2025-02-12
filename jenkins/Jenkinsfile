@@ -20,10 +20,10 @@ node {
     }
 
     stage('Debug') {
-    steps {
-        sh 'ls -lah /var/jenkins_home/workspace'
-        sh 'whoami'
-        sh 'docker ps -a'
+        steps {
+            sh 'ls -lah /var/jenkins_home/workspace'
+            sh 'whoami'
+            sh 'docker ps -a'
     }
 }
     
