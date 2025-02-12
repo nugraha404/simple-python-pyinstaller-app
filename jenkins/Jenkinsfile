@@ -21,7 +21,7 @@ node {
 
         
     stage('Deliver') {
-        docker.image('minidocks/pyinstaller').inside {
+        docker.image('cdrx/pyinstaller-linux:python2').inside {
             sh 'pyinstaller --onefile --noconfirm sources/add2vals.py'
         }
         
